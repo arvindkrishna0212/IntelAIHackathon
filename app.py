@@ -6,8 +6,7 @@ import spacy
 from spacy.matcher import Matcher
 from groq import Groq
 
-API_KEY = "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"
-
+API_KEY = "[your api key]"
 client = Groq(api_key=API_KEY)
 
 nlp = spacy.load("en_core_web_sm")
