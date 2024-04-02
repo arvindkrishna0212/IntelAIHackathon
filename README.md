@@ -4,6 +4,11 @@
 
 This repository contains code for a website (made using streamlit) that allows users to upload their resumes. The resumes are ranked automatically using a fine tuned model of gemma.
 
+## Google Colab Notebook
+[Click here](https://colab.research.google.com/drive/16PhoBeTMnbbOzkBd8JkHxTTog-h0-2D_?usp=sharing)
+
+Make sure to upload app.py to the colab file.
+
 ## Prerequisites
 Before running the application, ensure you have the following packages installed:
 
@@ -179,4 +184,33 @@ if PUSH_TO_HUB:
 2) Click on the "Submit" button to analyze the resumes.
 3) View extracted information such as name, education, and skills.
 4) Receive ranked results based on predefined criteria.
+
+# Explanation
+
+## Code Structure
+The code is organized into several functions, each serving a specific purpose:
+
+### 1. `extract_skills_from_resume(text, skills_list)`
+This function takes the text of a resume and a list of skills as input. It extracts skills from the resume text based on the provided list of skills.
+
+### 2. `extract_education_from_resume(text)`
+This function extracts education information from the resume text by searching for keywords related to education, such as "Bsc", "Msc", etc.
+
+### 3. `extract_name(resume_text)`
+This function extracts the name of the candidate from the resume text using SpaCy's matcher.
+
+### 4. `extract_skills(text)`
+This function extracts technical skills from the resume text using SpaCy's named entity recognition (NER) capabilities.
+
+### 5. `LLM(query)`
+This function interacts with the Groq API to perform language model-based completions. It sends a query and receives a response from the API.
+
+### 6. `check_resume_keywords(resume_text, keywords)`
+This function checks if the skills extracted from the resume match the required keywords using the LLM function and Groq API.
+
+### 7. `get_recent_file_path(directory)`
+This function retrieves the path of the most recently uploaded resume from a specified directory.
+
+### 8. `main()`
+The main function sets up the Streamlit application interface. It allows users to upload resumes, analyze them, and view extracted information.
 
